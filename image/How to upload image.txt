@@ -1,0 +1,47 @@
+STEP 1: Prepare your image
+    •    Make sure your image is saved on your computer (like me.jpg, logo.png, etc.)
+    •    It’s best to keep the file name short and lowercase (no spaces).
+Example: profile.jpg, banner.png
+
+
+STEP 2: Upload it to your GitHub repo
+    
+Go to your repository on GitHub (the one named yourusername.github.io)
+Click “Add file” → “Upload files”
+Drag your image into the upload box
+(You can create a folder called images if you want to keep things organized — not required but recommended.)
+    
+Scroll down and click Commit changes
+
+Your image is now stored online in your repo.
+
+
+STEP 3: Find the image URL
+
+Once uploaded:
+    
+Click on your image in GitHub
+Click the “View raw” button or in the address bar at the top of your browser, you’ll see that link includes /blob/.
+To make it work directly, simply replace the word blob with raw.
+Copy the URL from your browser’s address bar.
+
+
+STEP 4: Add it to your HTML
+
+Now open your index.html in GitHub and edit it.
+    
+Click the file name index.html
+Click the pencil icon (✏️) near the top-right to edit
+Find where you want the image to appear — for example, under your “About” section
+Add this line of HTML:
+
+<img src="https://raw.githubusercontent.com/yourusername/yourusername.github.io/main/profile.jpg" 
+     alt="My profile picture" 
+     style="width:200px;border-radius:10px;">
+
+
+(If you didn’t make an images folder, just use src="profile.jpg" instead.)
+    
+Scroll down and click Commit changes
+
+
