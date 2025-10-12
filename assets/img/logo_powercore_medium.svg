@@ -7,11 +7,11 @@
     </linearGradient>
 
     <filter id="ringGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feGaussianBlur stdDeviation="5" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="ringBloom" x="-120%" y="-120%" width="340%" height="340%">
-      <feGaussianBlur stdDeviation="24" result="bb"/>
+      <feGaussianBlur stdDeviation="16" result="bb"/>
       <feMerge><feMergeNode in="bb"/><feMergeNode in="bb"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="wireGlow" x="-80%" y="-80%" width="260%" height="260%">
@@ -19,13 +19,13 @@
       <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="textGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
     <radialGradient id="v" cx="50%" cy="50%" r="70%">
       <stop offset="70%" stop-color="rgba(0,0,0,0)"/>
-      <stop offset="100%" stop-color="rgba(0,0,0,0.7)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.55)"/>
     </radialGradient>
 
     <style><![CDATA[
@@ -41,13 +41,13 @@
       }
 
       .ring {
-        fill: none; stroke: url(#g); stroke-width: 10;
+        fill: none; stroke: url(#g); stroke-width: 8;
         stroke-dasharray: 10 12;
         transform-origin: 256px 256px;
         animation: spin 10s linear infinite, pulse 3s ease-in-out infinite;
       }
       .wires path {
-        fill: none; stroke: url(#g); stroke-width: 3.6;
+        fill: none; stroke: url(#g); stroke-width: 3.0;
         stroke-linecap: round; stroke-dasharray: 26 16; stroke-dashoffset: 900;
         filter: url(#wireGlow);
         animation: flow 5s linear infinite;
@@ -72,170 +72,170 @@
   <g class="matrix">
     
         <g transform="translate(34, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.5">
             <tspan>
-              15A3CA3794838A54F557E4D44A8F7F0CDC1C4A17120048F34E0B7B4C0AB6EE6CFEA6BDC45382000E8BD234A4F51EDE82435A3B8003F68EC261618DB1
+              234CD340CA4F2DB34E5A8AAEB57A1DDA978A469D82665DCBD2FAD2D96DF1664802182CE17C4FDE0C79D78145CBA105873A0EC3A2BB7109ABE29CA924
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="34,-600" to="34,600"
-            dur="3.3s" begin="0.71s" repeatCount="indefinite" />
+            dur="3.38s" begin="1.34s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(68, -600)" opacity="0.25">
           <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="12" letter-spacing="1.5">
             <tspan>
-              C6CDD3C74C20D463196B4B15DBBBB3D3FE167F0A3169E37CDFBC13BFB6F280CF9B31451136E16537C47E5972FAF25933562C2F18CD3D61602FE5828C
+              1106DFCFDA1AEC5D95E064AA2529DFC251B547834A164904BDFCD842594106A940353AD801222026C309714032C0BD012848F053C67C4854A374F55B
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="68,-600" to="68,600"
-            dur="4.93s" begin="0.56s" repeatCount="indefinite" />
+            dur="3.39s" begin="0.03s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(102, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="15" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="14" letter-spacing="1.5">
             <tspan>
-              31C4C8F51E44A3620D934C85F0F3F3306F6E856240FA84021806F5D60E36931D49946EAB0607E2192BEC2856521C24EE32F3210EE606994839B49982
+              F1A74E8027BC3FB76C15901520E7223066F64155056C668D026E81B0E769007332AB13CD2AEA840224F0E2C7154A18EDC4315F6E23A84FD629558485
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="102,-600" to="102,600"
-            dur="4.18s" begin="1.95s" repeatCount="indefinite" />
+            dur="3.46s" begin="1.21s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(136, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="12" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="16" letter-spacing="1.5">
             <tspan>
-              CFD02DC643A843D14C4A1CFE6D05D52EADDEB5F7D4490012A82009143A2B7DFA2E6D21481A7D8CF3B4700C8E5E3CB55D2C7B3C77936C4276FF4FD573
+              6EFFA9E3F429D74BA9D538B1DB43551125150FDF99DA413BA0472AC0F96B954602187A978DBF408B8A6D0E0BCDF751C6CA0C3682E44F8CBFB0F6A42E
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="136,-600" to="136,600"
-            dur="3.9s" begin="1.89s" repeatCount="indefinite" />
+            dur="3.4s" begin="0.84s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(170, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="14" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="16" letter-spacing="1.5">
             <tspan>
-              8FE48F3A9C33015D0E9E7239C9037220AE9FD547029B973971BEF0B780DDE7F3C315F43BAE3DF87C336FB013FCE57B014259913142EFD7E0BEC015E8
+              5F512B094E5558CC08F9F0E1333E981969768704893DD4A4CB60ED911D73920854C8B883E0BE1F69CEFAA707B36BE6D084C438606F0B24474A1DC6CA
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="170,-600" to="170,600"
-            dur="4.97s" begin="1.59s" repeatCount="indefinite" />
+            dur="3.98s" begin="2.38s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(204, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1.5">
             <tspan>
-              E406D57C75FF6A62F4A9F7D9BBD98F9335FF857624CB27DCACA35F71D21FE92D93F311F345E40CBC95B6407F1EF4B97085EC42E18155590FA8B22E5F
+              38C1C2A8B733E0FA90BF1E5223F0AAB30E5C4CE39E9E914269B3C81704522D282B49AB19B200F0A88A763C095BB336FC54C6B034F62FCE521C4690D9
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="204,-600" to="204,600"
-            dur="3.52s" begin="0.07s" repeatCount="indefinite" />
+            dur="3.22s" begin="1.5s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(238, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="16" letter-spacing="1.5">
             <tspan>
-              D3301DC98F7636C7E828EA3DCB025BA4BAF57AD612CF2C3CB012213363BEF27994AB566C0901D6F9B99ED52A4578E2353D8145598984DA4AC880654A
+              9FEB1E7601D40B7191F9D60CACCF66E4EC9A9F85F4840CB214420359E3967302C32B360B3935B6F6A3F3257F31C53512DCF55682E08266C38126A63D
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="238,-600" to="238,600"
-            dur="4.57s" begin="0.4s" repeatCount="indefinite" />
+            dur="3.97s" begin="1.06s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(272, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.5">
             <tspan>
-              FDD2915D471F81DE43418BD94F676816EC8C91A9A31C1235C0737C4BF8B39FB907094A893E6672C40E377174F53F844771625FE6F599D0428FE61D04
+              1281903A94A3CBDCCCE458FF4301C314C83926FBEA3DB18D2A4D193E76E26B5883F8AC10DB219FF8407AD430467EB6CC2C9E7B520872455701DD15FF
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="272,-600" to="272,600"
-            dur="4.29s" begin="1.01s" repeatCount="indefinite" />
+            dur="4.27s" begin="0.93s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(306, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="16" letter-spacing="1.5">
             <tspan>
-              4BA4FA9FF0FE28B97ACB418F3E11632555F76F84737A6F6EDF624FEE02CD75052A2E9E940C1FE3287BB5E6D17734D7A143BFBD5F1D04556ED25D6046
+              A8EC36896FE18CCDD71790719C9AC504CBA42A252F74264BC848A5EFE4D4E3677EE45D283E4808BE156B581A2AA8BE895BCF9D2A2D36B8FE80C35719
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="306,-600" to="306,600"
-            dur="4.48s" begin="2.34s" repeatCount="indefinite" />
+            dur="3.3s" begin="2.21s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(340, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="13" letter-spacing="1.5">
             <tspan>
-              D4DBE78690D8F39BF5804B95C0973C92E70AB0F8F4A5F30300280E8E5258389E36D24731D6F164508CC10117D73F03A13807BFA0C1A45669F0C95D10
+              74A6DE5692D1BA00F7C0930030A20032087E41808CB94A071463C7D856E0ACFCFBE4D77AE068378EC12730722DA05068C8A2DD15EE4990185DAB7EB8
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="340,-600" to="340,600"
-            dur="4.91s" begin="1.15s" repeatCount="indefinite" />
+            dur="4.45s" begin="2.23s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(374, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="13" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="14" letter-spacing="1.5">
             <tspan>
-              973AA903D4C5C30CCB1ABC7BBD28D07FAFA315F074107C6DBB9CC302F048F6B6DFB509D7E5C181178A36AE8704AE208132544DC6C9BE6A9CB373B2C7
+              2A7C7EE08659A30CE1199E3FA3622A135C32F6534D287136FBE231586094BB97F55944167C0E204886F39E7FF7890F1394690FA2C88C408967624905
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="374,-600" to="374,600"
-            dur="3.31s" begin="0.08s" repeatCount="indefinite" />
+            dur="3.41s" begin="0.24s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(408, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="12" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.5">
             <tspan>
-              59DE3441C6F9AC25F0C44B41F8A66C4615BD1E73452584C5CF14CD0DC17B2929E979814FEC0ABBB43BEAA202767EBEFC2B31B73F869BB2F8CFD83918
+              DE4EE3C51F7086BC840DB4180E62103E8D195D114EFE22F7A645F666326F2D5FECDDE4FE7AEB5409233B8AE9C68F67173E7473BAEEAAA73512551294
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="408,-600" to="408,600"
-            dur="3.9s" begin="1.52s" repeatCount="indefinite" />
+            dur="4.92s" begin="0.78s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(442, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="12" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="15" letter-spacing="1.5">
             <tspan>
-              BE23892F8D55684A1B058813AC657C76B6EC89389BB613040BC563AFB3DB4F742B6270496CE9F4164950DAFE2689C4A50B216374B740987BCAB712CC
+              76174E6E46148B17A5152E5A4DE2872279918F49AEF6B4F36E442CBCBD6062C92D3341957C3E55A46F96D671C86A09DCB2FD2B1BF7A5AA1645E2DFA3
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="442,-600" to="442,600"
-            dur="3.33s" begin="1.69s" repeatCount="indefinite" />
+            dur="4.21s" begin="2.39s" repeatCount="indefinite" />
         </g>
         
 
         <g transform="translate(476, -600)" opacity="0.25">
-          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="15" letter-spacing="1.5">
+          <text x="0" y="0" fill="#00ff7f" font-family="ui-monospace, monospace" font-size="16" letter-spacing="1.5">
             <tspan>
-              5D15A70AA079FA7D6099654FC026432DBA77290656E1E3FD3ACDFE3FD48AC7CB086D844D29A4C46615E73633E617C3BAAD68093DC18907D20A8B2E6F
+              B5D9B147DA9A08D587B2F222CE6A6564F5ABC48D95DD16DB4A7EBBC601430D4652CDA4A0CD3EC4C90976EAD67EF45E0EEA64363E5B7423549CEB419A
             </tspan>
           </text>
           <animateTransform attributeName="transform" type="translate"
             from="476,-600" to="476,600"
-            dur="4.52s" begin="0.63s" repeatCount="indefinite" />
+            dur="3.9s" begin="1.92s" repeatCount="indefinite" />
         </g>
         
   </g>
