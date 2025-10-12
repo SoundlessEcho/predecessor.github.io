@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00ff7f"/>
+      <stop offset="100%" stop-color="#00d46a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      @font-face {
+        font-family: 'Orbitron-Local';
+        src: local('Orbitron'), local('Eurostile'), local('BankGothic');
+      }
+    </style>
+  </defs>
+  <rect width="1200" height="400" fill="#0b0f0c"/>
+  <g filter="url(#glow)">
+    <text x="50" y="240" font-family="Orbitron-Local, monospace" font-weight="800" font-size="140" fill="url(#g)" letter-spacing="2">
+      PREDECESSOR
+    </text>
+  </g>
+  <g opacity="0.18">
+    <rect x="0" y="0" width="1200" height="400" fill="none" stroke="#00ff7f"/>
+    <path d="M 40 360 H 1160" stroke="#00ff7f" stroke-dasharray="6 10" />
+    <path d="M 40 320 H 1160" stroke="#00ff7f" stroke-dasharray="2 14" />
+    <path d="M 40 80 H 1160" stroke="#00ff7f" stroke-dasharray="3 12" />
+  </g>
+  <g>
+    <text x="58" y="300" font-family="monospace" font-size="22" fill="#82ffbf">Advanced GSC Modding • HUD FX • Loaders • Docs</text>
+  </g>
+</svg>

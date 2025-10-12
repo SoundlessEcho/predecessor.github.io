@@ -1,0 +1,22 @@
+{
+  "releases": [
+    {
+      "version": "v1.0.0",
+      "date": "2025-10-12",
+      "notes": "Initial stable release of Predecessor menu base with HUD FX and loader integration.",
+      "size": "12.4 MB",
+      "sha256": "3e5b1d2a1b2c3d4e5f6a7b8c9d0e1f23a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9",
+      "url": "https://github.com/YourOrg/Predecessor/releases/download/v1.0.0/Predecessor-v1.0.0.zip",
+      "changelog": "data/changelog.md"
+    },
+    {
+      "version": "v1.0.1-beta",
+      "date": "2025-10-19",
+      "notes": "Beta: decoder-style text animation improvements, slider fixes, and docs updates.",
+      "size": "13.1 MB",
+      "sha256": "7a1b2c3d4e5f6a7b8c9d0e1f23a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d93e5f1a",
+      "url": "https://github.com/YourOrg/Predecessor/releases/download/v1.0.1-beta/Predecessor-v1.0.1-beta.zip",
+      "changelog": "data/changelog.md"
+    }
+  ]
+}
