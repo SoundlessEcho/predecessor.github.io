@@ -43,7 +43,7 @@ async function loadReleases() {
 
         <!-- Platform badges -->
         <div class="kv">
-          <span>Xbox</span>
+          <span>Xbox Test</span>
           <span>Steam</span>
           <span>PlayStation</span>
           <span>Epic Store</span>
