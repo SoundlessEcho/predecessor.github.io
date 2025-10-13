@@ -29,39 +29,40 @@ document.addEventListener('click', (e) => {
 // Load releases.json on downloads page
 // ==============================
 async function loadReleases() {
-  const wrap = document.getElementById('releases');
+  const wrap = document.getElementById("releases");
   if (!wrap) return;
 
   try {
-    const res = await fetch('data/releases.json');
+    const res = await fetch("data/releases.json");
     const data = await res.json();
 
-    wrap.innerHTML = data.releases.map(r => `
-      <div class="card">
-        <h3>${r.version} <small class="muted">(${r.date})</small></h3>
-        <p>${r.notes}</p>
+    wrap.innerHTML = data.releases.map(r => {
+      // Create badges dynamically
+      const badges = r.platforms && r.platforms.length
+        ? r.platforms.map(p => `<span>${p}</span>`).join("")
+        : "";
 
-        <!-- Platform badges -->
-        <div class="kv">
-          <span>Xbox Test</span>
-          <span>Steam</span>
-          <span>PlayStation</span>
-          <span>Epic Store</span>
-          <span>PC</span>
+      return `
+        <div class="card">
+          <h3>${r.version} <small class="muted">(${r.date})</small></h3>
+          <p>${r.notes}</p>
+
+          <div class="kv">${badges}</div>
+
+          <p>
+            <a class="btn primary" href="${r.url}" download>Download</a>
+            ${r.video ? `<a class="btn ghost" href="${r.video}" target="_blank" rel="noopener">🎥 Watch Video</a>` : ""}
+          </p>
         </div>
-
-        <p>
-          <a class="btn primary" href="${r.url}" download>Download</a>
-          ${r.video ? `<a class="btn ghost" href="${r.video}" target="_blank" rel="noopener">🎥 Watch Video</a>` : ''}
-        </p>
-      </div>
-    `).join('');
+      `;
+    }).join("");
   } catch (e) {
-    console.error('Error loading releases:', e);
+    console.error("Error loading releases:", e);
     wrap.innerHTML = `<div class="alert">Could not load releases.</div>`;
   }
 }
 loadReleases();
+
 
 // ==============================
 // Simple lightbox for images (showcase)
