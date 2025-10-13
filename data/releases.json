@@ -3,10 +3,10 @@
     {
       "version": "Helldivers 2 Cheat Table",
       "date": "v1.0.0",
-      "notes": "Helldivers 2 Cheats includes Bypass Anti-Cheat  making cheats undetectable.",
+      "notes": "Helldivers 2 Cheats includes Bypass Anti-Cheat.",
       "url": "https://github.com/YourOrg/Predecessor/releases/download/v1.0.1-beta/Predecessor-v1.0.1-beta.zip",
       "video": "https://www.youtube.com/watch?v=Yg5CWo80eEw",
-      "platforms": ["Xbox", "PlayStation", "Epic Store", "PC"]
+      "platforms": ["Steam", "Undetectable"]
     },
     {
       "version": "Predecessor BO3 GSC Menu",
