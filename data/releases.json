@@ -7,6 +7,7 @@
       "size": "12.4 MB",
       "sha256": "3e5b1d2a1b2c3d4e5f6a7b8c9d0e1f23a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9",
       "url": "https://github.com/YourOrg/Predecessor/releases/download/v1.0.0/Predecessor-v1.0.0.zip",
+      "changelog": "data/changelog.md"
     },
     {
       "version": "v1.0.1-beta",
