@@ -20,7 +20,7 @@
     <nav>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="downloads.html">Downloads</a>
+        <a href="downloads.html" class="active">Downloads</a>
         <a href="showcase.html">Showcase</a>
         <a href="docs.html">Docs</a>
         <a href="contact.html">Contact</a>
@@ -28,16 +28,59 @@
     </nav>
   </div>
 </header>
+
 <main class="container">
 
 <h1>Downloads</h1>
-<p>Get the latest builds of <strong>Predecessor</strong>. Files are hosted via GitHub Releases or direct ZIPs. The “Download” buttons below will save the selected version. </p>
-<div id="releases" class="grid" aria-live="polite">
-  <div class="card"><p class="muted">Loading releases…</p></div>
+<p>Watch the showcase below to see what you’re downloading and explore supported platforms.</p>
+
+<!-- YouTube Preview -->
+<div class="video-frame" style="margin-bottom:18px;">
+  <iframe width="100%" height="100%" 
+    src="https://www.youtube.com/embed/Yg5CWo80eEw"
+    title="Predecessor Download Preview" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
 </div>
-<div class="alert">Tip: Keep your ZIPs in a GitHub Release and paste the URL into <code>data/releases.json</code>.</div>
+
+<!-- Downloads Grid -->
+<div id="releases" class="grid" aria-live="polite">
+  <div class="card">
+    <h3>v1.0.1-beta <small class="muted">(2025-10-19)</small></h3>
+    <p>Beta release with improved HUD FX, decoder animation, and loader updates.</p>
+
+    <!-- Platform badges -->
+    <div class="kv">
+      <span>Xbox</span>
+      <span>Steam</span>
+      <span>PlayStation</span>
+      <span>Epic Store</span>
+      <span>PC</span>
+    </div>
+
+    <p><a class="btn primary" href="https://github.com/YourOrg/Predecessor/releases/download/v1.0.1-beta/Predecessor-v1.0.1-beta.zip" download>Download</a></p>
+  </div>
+
+  <div class="card">
+    <h3>v1.0.0 <small class="muted">(2025-10-12)</small></h3>
+    <p>Initial stable release of Predecessor menu base with HUD FX and loader integration.</p>
+
+    <div class="kv">
+      <span>Xbox</span>
+      <span>Steam</span>
+      <span>PlayStation</span>
+      <span>Epic Store</span>
+      <span>PC</span>
+    </div>
+
+    <p><a class="btn primary" href="https://github.com/YourOrg/Predecessor/releases/download/v1.0.0/Predecessor-v1.0.0.zip" download>Download</a></p>
+  </div>
+</div>
 
 </main>
+
 <footer>
   <div class="container">
     <div class="grid">
@@ -47,20 +90,25 @@
       </div>
       <div>
         <h3>Links</h3>
-        <p><a href="downloads.html">Latest Release</a><br>
-           <a href="docs.html">Documentation</a><br>
-           <a href="showcase.html">Media</a>
+        <p>
+          <a href="downloads.html" class="active">Latest Release</a><br>
+          <a href="docs.html">Documentation</a><br>
+          <a href="showcase.html">Media</a>
         </p>
       </div>
       <div>
         <h3>Community</h3>
-        <p><a href="#" aria-disabled="true">Discord (add your invite)</a><br>
-           <a href="https://github.com/SoundlessEcho" target="_blank" rel="noopener">GitHub</a></p>
+        <p>
+          <a href="https://discord.com/invite/WznQZdT" target="_blank" rel="noopener">Discord</a><br>
+          <a href="https://www.youtube.com/@SoundlessEcho" target="_blank" rel="noopener">YouTube</a><br>
+          <a href="https://github.com/SoundlessEcho" target="_blank" rel="noopener">GitHub</a>
+        </p>
       </div>
     </div>
     <p class="muted">© 2025 Predecessor. All rights reserved.</p>
   </div>
 </footer>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>
