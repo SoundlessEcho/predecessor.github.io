@@ -1,0 +1,20 @@
+{
+  "releases": [
+    {
+      "version": "Helldivers 2 Cheat Table",
+      "date": "v4.0.0",
+      "notes": "Helldivers 2 Cheats includes Bypass Anti-Cheat.",
+      "url": "https://github.com/SoundlessEcho/Download-Page/raw/main/Helldiver%202/Experimental_4.0.0_By_Zodiac.ct",
+      "video": "https://www.youtube.com/watch?v=Yg5CWo80eEw",
+      "platforms": ["Steam", "Undetectable"]
+    },
+    {
+      "version": "Predecessor BO3 GSC Menu",
+      "date": "v1.0.2",
+      "notes": "Predecessor GSC mod menu for BO3 zombies.",
+      "url": "https://github.com/SoundlessEcho/Download-Page/raw/main/Call%20of%20Duty/BO3/GSC%20Menu%20Zombie%20Steam%20And%20PS4.zip",
+      "video": "https://www.youtube.com/watch?v=ehjO6XsgLu0",
+      "platforms": ["Steam", "Modded PS4"]
+    }
+  ]
+}
