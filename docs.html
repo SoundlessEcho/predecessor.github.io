@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Predecessor • Docs</title>
-  <meta name="description" content="Predecessor — Advanced Call of Duty GSC modding environment with HUD FX, loaders, docs, and downloads." />
+  <title>Predecessor • Store</title>
+  <meta name="description" content="Predecessor Store — Get the official Developer Kit and Predecessor menu base by SoundlessEcho." />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="preload" href="assets/img/logo.svg" as="image">
   <link rel="stylesheet" href="assets/css/style.css" />
@@ -22,45 +22,48 @@
         <a href="index.html">Home</a>
         <a href="downloads.html">Downloads</a>
         <a href="showcase.html">Showcase</a>
-        <a href="docs.html">Docs</a>
-        <a href="contact.html">Contact</a>
+        <a href="store.html" class="active">Store</a>
+        <a href="about.html">About Me</a>
       </div>
     </nav>
   </div>
 </header>
+
 <main class="container">
+  <h1>Store</h1>
+  <p>Official Predecessor tools and kits by <strong>SoundlessEcho</strong>.</p>
 
-<h1>Documentation</h1>
-<div class="docs">
-  <aside class="sidebar">
-    <a href="#getting-started" class="active">Getting Started</a>
-    <a href="#installation">Installation</a>
-    <a href="#api">API / Functions</a>
-    <a href="#faq">FAQ</a>
-    <a href="data/changelog.md">Changelog</a>
-  </aside>
-  <article class="prose">
-    <h2 id="getting-started">Getting Started</h2>
-    <p>Welcome to <strong>Predecessor</strong>. This toolkit includes a loader, HUD FX, and utilities tailored to Call of Duty GSC modding.</p>
-    <pre><code>git clone https://github.com/YourOrg/Predecessor.git
-cd Predecessor</code></pre>
-    <h2 id="installation">Installation</h2>
-    <ol>
-      <li>Download the latest release from the <a href="downloads.html">Downloads</a> page.</li>
-      <li>Extract to a clean folder.</li>
-      <li>Follow the <code>README</code> for the target COD title.</li>
-    </ol>
-    <h2 id="api">API / Functions</h2>
-    <p>Example HUD text creation:</p>
-    <pre><code class="language-gsc">CreateText(player, text, x, y, scale, color)</code></pre>
-    <p>Decoder-style animation (pseudo):</p>
-    <pre><code>for (i = 0; i &lt; text.length; i++) &#123; /* animate */ &#125;</code></pre>
-    <h2 id="faq">FAQ</h2>
-    <p><strong>Is this menu base multi-title?</strong> Yes—design aims to be portable with minor changes.</p>
-  </article>
-</div>
+  <div class="grid" style="display:grid;gap:24px;margin-top:20px;">
+    <!-- Developer Kit -->
+    <div class="card" style="border:1px solid #00ff7f;padding:20px;border-radius:12px;background:#0a0a0a;">
+      <h2>Developer Kit</h2>
+      <p>The complete Predecessor Developer Kit — includes loaders, HUD FX, advanced GSC utilities, and live debugging tools for modern Call of Duty modding.</p>
+      <ul>
+        <li>Cross-title GSC support (BO2, MW2, WW2, etc.)</li>
+        <li>HUD animation system & decoder effects</li>
+        <li>Menu queue management & overflow protection</li>
+        <li>Pre-built utilities and documentation</li>
+      </ul>
+      <p><strong>Price:</strong> $15</p>
+      <p><a href="https://discord.com/invite/WznQZdT" class="btn primary" target="_blank" rel="noopener">Buy Now</a></p>
+    </div>
 
+    <!-- Predecessor -->
+    <div class="card" style="border:1px solid #00ff7f;padding:20px;border-radius:12px;background:#0a0a0a;">
+      <h2>Predecessor Menu Base</h2>
+      <p>The core Predecessor menu base — built for speed, modularity, and stability. The ultimate foundation for GSC modding.</p>
+      <ul>
+        <li>Plug-and-play GSC structure</li>
+        <li>Custom HUD text & slider systems</li>
+        <li>Infinity Loader compatible</li>
+        <li>Free future updates included</li>
+      </ul>
+      <p><strong>Price:</strong> $10</p>
+      <p><a href="https://discord.com/invite/WznQZdT" class="btn primary" target="_blank" rel="noopener">Buy Now</a></p>
+    </div>
+  </div>
 </main>
+
 <footer>
   <div class="container">
     <div class="grid">
@@ -71,8 +74,8 @@ cd Predecessor</code></pre>
       <div>
         <h3>Links</h3>
         <p><a href="downloads.html">Latest Release</a><br>
-           <a href="docs.html">Documentation</a><br>
-           <a href="showcase.html">Media</a>
+           <a href="showcase.html">Media</a><br>
+           <a href="about.html">About Me</a>
         </p>
       </div>
       <div>
@@ -90,3 +93,4 @@ cd Predecessor</code></pre>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
