@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Developer Kit ? GSC Reference & Docs</title>
+  <meta name="description" content="Predecessor Developer Kit ? credits, supported games, how-to, changelog, and GSC scripting reference in a clean dark UI." />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      /* ==== CORE SURFACES ==== */
+      --bg: #111111;          /* page background 111111*/
+      --panel: #2a2a2a;       /* card/panel background 2a2a2a*/
+      --surface-1: #1a1a1a;   /* inner blocks, kbd, code, buttons 1a1a1a*/
+      --border: #00FF00;      /* subtle borders 222222*/
+
+      /* ==== TEXT ==== */
+      --text: #ffffff;        /* primary text */
+      --muted: #bbbbbb;       /* secondary text */
+
+      /* ==== ACCENTS ==== */
+      --accent: #00e07b;      /* neon green accent */
+      --accent-2: #35b7ff;    /* cyan accent */
+
+      /* ==== COMPONENT-SPECIFIC ==== */
+      --link-muted: #cccccc;  /* link color inside cards (low-contrast default) */
+      --lead: #ffffff;        /* lead paragraph color */
+      --code-fg: #b4f5d2;     /* code text color */
+      --chip-fg: #9dd1ff;     /* soft badge text */
+
+      /* ==== SCROLLBAR ==== */
+      --scroll-thumb: #3b434c;
+      --scroll-track: #1a1f24;
+
+      /* ==== HOVERS / TABLE STRIPES ==== */
+      --hover-border: #2a2a2a;
+      --hover-bg: #141a21;
+      --table-stripe: #141a21;
+
+      /* ===== CUSTOM TEXT PALETTE (EDIT THESE TO RECOLOR TEXT ANYWHERE) ===== */
+      --c1:#ffffff;  /* white */
+      --c2:#bbbbbb;  /* muted gray */
+      --c3:#00e07b;  /* neon green */
+      --c4:#35b7ff;  /* cyan */
+      --c5:#ffd33d;  /* yellow */
+      --c6:#ff5555;  /* red */
+      --c7:#c084fc;  /* purple */
+      --c8:#00ffd5;  /* aqua */
+      --c9:#ff8f00;  /* orange */
+      --c10:#9dd1ff; /* soft blue */
+      --c11:#b4f5d2; /* mint (code) */
+      --c12:#a0a0a0; /* extra muted */
+
+      /* ===== ONE-KNOB LABEL COLOR ===== */
+      --ui-label-color:#00FF00; /* change this to recolor all labels & cmd tags 00e07b*/
+    }
+
+    /* ===== TEXT COLOR UTILITIES (apply to any element) ===== */
+    .c1{color:var(--c1)!important;} .c2{color:var(--c2)!important;} .c3{color:var(--c3)!important;}
+    .c4{color:var(--c4)!important;} .c5{color:var(--c5)!important;} .c6{color:var(--c6)!important;}
+    .c7{color:var(--c7)!important;} .c8{color:var(--c8)!important;} .c9{color:var(--c9)!important;}
+    .c10{color:var(--c10)!important;} .c11{color:var(--c11)!important;} .c12{color:var(--c12)!important;}
+
+    /* Optional role classes you can remap later */
+    .text-title{color:var(--c1)!important;}      /* headings */
+    .text-subtle{color:var(--c2)!important;}     /* muted text */
+    .text-link{color:var(--c4)!important;}       /* links */
+    .text-accent{color:var(--c3)!important;}     /* accent names */
+    .text-danger{color:var(--c6)!important;}     /* warnings */
+    .text-warning{color:var(--c5)!important;}    /* notes */
+    .text-code{color:var(--c11)!important;}      /* inline code */
+
+    /* ===== Label & Changelog Tag Helpers ===== */
+    .ui-label{ color:var(--ui-label-color); font-weight:600; letter-spacing:.2px; }
+    .cmd-label{ color:var(--ui-label-color); font-weight:600; }
+
+    html, body { height: 100%; }
+    body { background: var(--bg); color: var(--text); font-size: 16px; }
+    .page { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
+
+    .brand { display: flex; align-items: center; gap: .75rem; }
+    .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    .brand h1 { font-size: 1.4rem; margin: 0; letter-spacing: .4px; }
+
+    /* Cards */
+    .card { background: var(--panel); border: 1px solid var(--border); }
+    .card .card-header { background: var(--panel); border-bottom: 1px solid var(--border); color: var(--text); }
+    .card a { color: var(--link-muted); }
+    .subtle { color: var(--muted); }
+    .lead { color: var(--lead); }
+
+    /* Code/KBD/Badges */
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      padding: .15rem .45rem;
+      border-radius: .35rem;
+    }
+    code {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      padding: .125rem .35rem;
+      border-radius: .35rem;
+      color: var(--code-fg);
+    }
+    pre code { display: block; padding: 1rem; border-radius: .6rem; }
+    .badge-soft {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      color: var(--chip-fg);
+    }
+
+    .section { margin-top: 32px; }
+    hr { border-color: var(--border); }
+
+    /* custom scrollbar */
+    .scrollhost { max-height: 70vh; overflow: auto; }
+    .scrollhost::-webkit-scrollbar { width: 12px; }
+    .scrollhost::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 8px; }
+    .scrollhost::-webkit-scrollbar-track { background: var(--scroll-track); }
+
+    /* link buttons */
+    .link-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .6rem .9rem; border-radius: .6rem;
+      border: 1px solid var(--border);
+      background: var(--surface-1);
+      text-decoration: none; color: var(--text);
+    }
+    .link-btn:hover { border-color: var(--hover-border); background: var(--hover-bg); }
+
+    /* table */
+    .table-dark{
+      --bs-table-bg: var(--panel);
+      --bs-table-border-color: var(--border);
+      --bs-table-striped-bg: var(--table-stripe);
+    }
+  </style>
+</head>
+<body>
+  <header class="border-bottom" style="border-color:var(--border)!important;">
+    <div class="page d-flex justify-content-between align-items-center flex-wrap gap-3">
+      <div class="brand">
+        <!-- <span class="dot"></span>  -->
+        <i class="bi bi-code-slash"></i>
+        <h1 class="m-0 text-title">Developer Kit</h1>
+      </div>
+      <nav class="d-flex flex-wrap gap-2">
+        <!-- <a class="link-btn text-link" href="https://soundlessecho.github.io/predecessor.github.io/index.html" target="_blank"><i class="bi bi-router"></i>Cloud Drop Center</a> -->
+        <a class="link-btn text-link" href="https://soundlessecho.github.io/predecessor.github.io/index.html"><i class="bi bi-server"></i> Live Access Library</a>
+        <!-- <a class="link-btn text-link" href="#changelog"><i class="bi bi-stars"></i> Changelog</a> -->
+        <!-- <a class="link-btn text-link" href="#support"><i class="bi bi-life-preserver"></i> Support</a> -->
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- INTRO / CREDITS -->
+    <section id="intro" class="section">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <p class="lead mb-3 c1">Portal</p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-header fw-semibold"><i class="bi bi-people"></i> Credits</div>
+                <div class="card-body">
+                  <ul class="list-unstyled m-0">
+                    <li class="mb-2">
+                      <span class="badge badge-soft me-2">Lead</span>
+                      <strong class="c3">SoundlessEcho</strong> ? <a class="c4" href="https://www.youtube.com/@SoundlessEcho" target="_blank" rel="noopener">YouTube</a>
+                    </li>
+                    <li class="mb-2">
+                      <span class="badge badge-soft me-2">Source</span>
+                      <strong class="c10">Extinct</strong> ? <a class="c8" href="https://github.com/Extincts/WW2-Subversion-2.1.1-Menu-base" target="_blank" rel="noopener">Original Menu Base</a>
+                    </li>
+                    <li class="mb-2">
+                      <span class="badge badge-soft me-2">QA</span>
+                      <strong class="c7">Deicide</strong> ? <a class="c4" href="https://www.youtube.com/@choseninterval" target="_blank" rel="noopener">Testing & Xbox Debug</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-header fw-semibold"><i class="bi bi-link-45deg"></i> Quick Links</div>
+                <div class="card-body">
+                  <div class="d-flex flex-column gap-2">
+                    <a class="link-btn c4" href="https://chatgpt.com/" target="_blank" rel="noopener"><i class="bi bi-chat-dots"></i> Ask Assistant</a>
+                    <a class="link-btn c4" href="https://github.com/SoundlessEcho/Download-Page/raw/main/Call%20of%20Duty/BO3/GSC%20Menu%20Zombie%20Steam%20And%20PS4.zip"><i class="bi bi-cloud-arrow-down"></i> Download The Latest Update</a>
+                    <a class="link-btn c4" href="https://github.com/SoundlessEcho/Predecessor-Build/tree/main/InfinityLoader/Projects/Bundle" target="_blank" rel="noopener"><i class="bi bi-github"></i> Developer Build</a>
+                    <div class="d-flex flex-wrap gap-2">
+                      <a class="link-btn c4" href="https://github.com" target="_blank" rel="noopener">COD4</a>
+                      <a class="link-btn c4" href="https://github.com" target="_blank" rel="noopener">WAW</a>
+                      <a class="link-btn c4" href="https://github.com/shit-ware/IW4" target="_blank" rel="noopener">MW2</a>
+                      <a class="link-btn c4" href="https://github.com/Jo-Milk/Black-Ops" target="_blank" rel="noopener">BO1</a>
+                      <a class="link-btn c4" href="https://github.com/Brentdevent/MW3-GSC-Dump" target="_blank" rel="noopener">MW3</a>
+                      <a class="link-btn c4" href="https://github.com/JezuzLizard/Recompilable-gscs-for-BO2-zombies-and-multiplayer" target="_blank" rel="noopener">BO2</a>
+                      <a class="link-btn c4" href="https://github.com/mjkzy/iw6-gsc-dump/tree/main/maps/mp" target="_blank" rel="noopener">GHOSTS</a>
+                      <a class="link-btn c4" href="https://github.com/InfinityLoader/IL-GSC/tree/main/AW/PC" target="_blank" rel="noopener">AW</a>
+                      <a class="link-btn c4" href="https://github.com/shiversoftdev/t7-source/tree/main/scripts" target="_blank" rel="noopener">BO3</a>
+                      <a class="link-btn c4" href="https://github.com/InfinityLoader/IL-GSC/tree/main/IW/PC/ALL" target="_blank" rel="noopener">IW</a>
+                      <a class="link-btn c4" href="https://github.com/InfinityLoader/IL-GSC/tree/main/MWR/PC" target="_blank" rel="noopener">MWR</a>
+                      <a class="link-btn c4" href="https://github.com/InfinityLoader/IL-GSC/tree/main/WW2/PC/ALL" target="_blank" rel="noopener">WW2</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- /row -->
+        </div> <!-- /card-body -->
+      </div> <!-- /card -->
+    </section>
+
+    <!-- SUPPORTED GAMES -->
+    <section class="section" id="support">
+      <div class="card">
+        <div class="card-header fw-semibold"><i class="bi bi-controller"></i> Game Support</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-dark table-striped align-middle">
+              <thead>
+                <tr>
+                  <th style="width: 180px;">Game</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>COD4</td><td><span class="badge text-bg-warning">Beta</span></td><td>Does not support foreach function replace with for function.</td></tr>
+                <tr><td>WAW</td><td><span class="badge text-bg-warning">Beta</span></td><td>Zombies does not support foreach function replace with for function.</td></tr>
+                <tr><td>MW2</td><td><span class="badge text-bg-success">Stable</span></td><td>Add Note</td></tr>
+                <tr><td>BO1</td><td><span class="badge text-bg-warning">Beta</span></td><td>Zombies does not support foreach function replace with for function.</td></tr>
+                <tr><td>MW3</td><td><span class="badge text-bg-success">Stable</span></td><td>Add Note</td></tr>
+                <tr><td>BO2</td><td><span class="badge text-bg-success">Stable</span></td><td>Steam Infinity Loader can trigger server disconnect messages.</td></tr>
+                <tr><td>GHOSTS</td><td><span class="badge text-bg-success">Stable</span></td><td>Add Note</td></tr>
+                <tr><td>AW</td><td><span class="badge text-bg-success">Stable</span></td><td>Add Note</td></tr>
+                <tr><td>BO3</td><td><span class="badge text-bg-success">Stable</span></td><td>Some ZM maps work solo only.</td></tr>
+                <tr><td>IW</td><td><span class="badge text-bg-success">Stable</span></td><td>Add Note</td></tr>
+                <tr><td>MWR</td><td><span class="badge text-bg-success">Stable</span></td><td>Add Note</td></tr>
+                <tr><td>WW2</td><td><span class="badge text-bg-success">Stable</span></td><td>Add Note</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO USE -->
+    <section class="section" id="how-to">
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-header fw-semibold"><i class="bi bi-mouse2"></i> Keyboard & Mouse</div>
+            <div class="card-body">
+              <h6 class="text-uppercase text-subtle">BO2 & BO3</h6>
+              <ul class="mb-3">
+                <li><span class="ui-label">Open Menu: Right Mouse + V</span></li>
+                <li><span class="ui-label">Select: F</span></li>
+                <li><span class="ui-label">Back/Close: V</span></li>
+                <li><span class="ui-label">Close: C</span></li>
+                <li><span class="ui-label">Scroll: Right Mouse / Left Mouse</span></li>
+                <li><span class="ui-label">Modify Client: 2</span></li>
+              </ul>
+              <h6 class="text-uppercase text-subtle">MW2 & MW3</h6>
+              <ul class="m-0">
+                <li><span class="ui-label">Open Menu: Right Mouse + E</span></li>
+                <li><span class="ui-label">Select: F</span></li>
+                <li><span class="ui-label">Back/Close: E</span></li>
+                <li><span class="ui-label">Close: C</span></li>
+                <li><span class="ui-label">Scroll: Right Mouse / Left Mouse</span></li>
+                <li><span class="ui-label">Modify Client: 5</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-header fw-semibold"><i class="bi bi-controller"></i> Controller</div>
+            <div class="card-body">
+              <ul class="m-0">
+                <li><span class="ui-label">Open Menu: LT + RS</span></li>
+                <li><span class="ui-label">Select: X</span></li>
+                <li><span class="ui-label">Back/Close: RS</span></li>
+                <li><span class="ui-label">Close: B</span></li>
+                <li><span class="ui-label">Scroll: RT / LT</span></li>
+                <li><span class="ui-label">Modify Client: D-Pad Down</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section">
+      <div class="card">
+        <div class="card-header fw-semibold"><i class="bi bi-play-btn"></i> Demo</div>
+        <div class="card-body">
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://www.youtube.com/embed/Yg5CWo80eEw"
+              title="Infinity Loader Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHANGELOG -->
+    <section class="section" id="changelog">
+      <div class="card">
+        <div class="card-header fw-semibold"><i class="bi bi-stars"></i> Changelog</div>
+        <div class="card-body">
+          <div class="scrollhost">
+            <h6 class="mt-0 text-title">Version 1.0.1</h6>
+            <ul>
+              <li><span class="cmd-label">Fix GHOSTS button</span></li>
+              <li><span class="cmd-label">Improved Keyboard</span></li>
+              <li><span class="cmd-label">Added Password Check</span></li>
+              <li><span class="cmd-label">Improved Table Menu</span></li>
+              <li><span class="cmd-label">MWR / IW / AW</span> / WW2 / BO1 / COD4 supported</li>
+            </ul>
+            <h6 class="text-title">Version 1.0.0</h6>
+            <ul>
+
+              <li><span class="cmd-label">Key Authorization</span></li>
+              <li><span class="cmd-label">Infinite Scrolling</span></li>
+              <li><span class="cmd-label">Overflow String Protection</span></li>
+              <li><span class="cmd-label">Model Protection</span></li>
+              <li><span class="cmd-label">Increased HUD Limit</li>
+
+              <li><span class="cmd-label">Temporary Save Memory</li>
+              <li><span class="cmd-label">Menu Base Editor ? Keyboard ? Confirmation Message</li>
+              <li><span class="cmd-label">Progress Bar ? Option Check Box ? Toggle Text (ON/OFF)</li>
+              <li><span class="cmd-label">Value Slider ? Option Value Slider Box ? String Slider</li>
+              <li><span class="cmd-label">Option Separator ? Force Host (ZM)</li>
+              <li><span class="cmd-label">Share Menu Verification ? Auto Verification</li>
+              <li><span class="cmd-label">Client Modify ? Recent Clients ? Team Clients ? All Clients ? Ban Clients From Menu</li>
+              <li><span class="cmd-label">Bullet Tracer ? Spawn Model ? Search CSV Table</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUTTON MAPS -->
+    <section class="section" id="buttons">
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-header fw-semibold"><i class="bi bi-keyboard"></i> Button Functions</div>
+            <div class="card-body">
+              <ul class="mb-0 columns-2">
+                <li><code class="text-code">sprintbuttonpressed()</code></li>
+                <li><code class="text-code">inventorybuttonpressed()</code></li>
+                <li><code class="text-code">secondaryoffhandbuttonpressed()</code></li>
+                <li><code class="text-code">fragbuttonpressed()</code></li>
+                <li><code class="text-code">stancebuttonpressed()</code></li>
+                <li><code class="text-code">jumpbuttonpressed()</code></li>
+                <li><code class="text-code">meleebuttonpressed()</code></li>
+                <li><code class="text-code">throwbuttonpressed()</code></li>
+                <li><code class="text-code">adsbuttonpressed()</code></li>
+                <li><code class="text-code">actionslotfourbuttonpressed()</code></li>
+                <li><code class="text-code">actionslotthreebuttonpressed()</code></li>
+                <li><code class="text-code">actionslottwobuttonpressed()</code></li>
+                <li><code class="text-code">actionslotonebuttonpressed()</code></li>
+                <li><code class="text-code">attackbuttonpressed()</code></li>
+                <li><code class="text-code">changeseatbuttonpressed()</code></li>
+                <li><code class="text-code">usebuttonpressed()</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-header fw-semibold"><i class="bi bi-list-check"></i> Binding Names (Examples)</div>
+            <div class="card-body">
+              <ul class="mb-3">
+                <li><span class="cmd-label">D-Pad : <code class="text-code">[{+actionslot number}]</code><span class="cmd-label">Number range = 1 / 4</span></li>
+                <li><span class="cmd-label">Jump : <code class="text-code">[{+gostand}]</code></span></li>
+                <li><span class="cmd-label">Stance : <code class="text-code">[{+stance}]</code></span></li>
+                <li><span class="cmd-label">Reload : <code class="text-code">[{+usereload}]</code></span></li>
+                <li><span class="cmd-label">Next Weapon : <code class="text-code">[{+weapnext}]</code></span></li>
+                <li><span class="cmd-label">Melee : <code class="text-code">[{+melee}]</code></span></li>
+                <li><span class="cmd-label">Sprint : <code class="text-code">[{+breath_sprint}]</code></span></li>
+                <li><span class="cmd-label">Frag : <code class="text-code">[{+frag}]</code></span></li>
+                <li><span class="cmd-label">Fire : <code class="text-code">[{+attack}]</code></span></li>
+                <li><span class="cmd-label">ADS Throw : <code class="text-code">[{+toggleads_throw}]</code></span></li>
+                <li><span class="cmd-label">Speed Throw : <code class="text-code">[{+speed_throw}]</code></span></li>
+                <li><span class="cmd-label">Activate/Reload : <code class="text-code">[{+activate}]</code></span></li>
+              </ul>
+              <p class="subtle small mb-0">Steam file paths:
+                <code class="text-code">MW2/players/config_mp.cfg</code>,
+                <code class="text-code">MW3/players2/config_mp.cfg</code>,
+                <code class="text-code">BO2/players/bindings_mp.bgd</code>,
+                <code class="text-code">BO3/players/bindings_0.cfg</code>. Open with Notepad++.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HUD -->
+    <section class="section" id="hud">
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-header fw-semibold"><i class="bi bi-keyboard"></i> Fonts Names</div>
+            <div class="card-body">
+              <ul class="mb-0 columns-2">
+                <li><code class="text-code">default</code></li>
+                <li><code class="text-code">small</code></li>
+                <li><code class="text-code">extrasmall</code></li>
+                <li><code class="text-code">extrabig</code></li>
+                <li><code class="text-code">big</code></li>
+                <li><code class="text-code">objective</code></li>
+                <li><code class="text-code">hudbig</code></li>
+                <li><code class="text-code">smallfixed</code></li>
+                <li><code class="text-code">bigfixed</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-header fw-semibold"><i class="bi bi-list-check"></i> Color (Examples)</div>
+            <div class="card-body">
+              <ul class="mb-3">
+                <li><span class="cmd-label">Red : <code class="text-code">^1</code></span></li>
+                <li><span class="cmd-label">Green : <code class="text-code">^2</code></span></li>
+                <li><span class="cmd-label">Yellow : <code class="text-code">^3</code></span></li>
+                <li><span class="cmd-label">Blue : <code class="text-code">^4</code></span></li>
+                <li><span class="cmd-label">Ight Blue : <code class="text-code">^5</code></span></li>
+                <li><span class="cmd-label">Purple : <code class="text-code">^6</code></span></li>
+                <li><span class="cmd-label">White : <code class="text-code">^7</code></span></li>
+                <li><span class="cmd-label">Color Changes Depending on Game : <code class="text-code">^8</code></span></li>
+                <li><span class="cmd-label">Grey : <code class="text-code">^9</code></span></li>
+                <li><span class="cmd-label">Black : <code class="text-code">^0</code></span></li>
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips: GSC Statements Reference -->
+<section class="section" id="compat">
+<div class="card">
+<div class="card-header fw-semibold"><i class="bi bi-terminal-plus"></i> GSC Statements Reference</div>
+<div class="card-body scrollhost">
+<pre class="mb-3"><code class="text-code">Var ? declares a class variable accessible by all class functions.
+Return ? returns a value from a function. If omitted, returns undefined.
+Wait ? pauses execution for the specified time.
+Thread ? runs a function in a new execution thread.
+Undefined ? represents no value.
+Self ? represents the current entity instance.
+CanBeNameToAnything ? persistent global via spawnStruct().
+Level ? global for the duration of a level.
+Name[0] ? global array for the duration of a match.
+If ? conditional.
+Else ? conditional fallback.
+While ? loop.
+For ? loop.
+Foreach ? loop.
+In ? iterator keyword.
+Waittill ? wait for specific notify.
+Waittillmatch ? wait for multiple notifies.
+Waittillframeend ? push execution to end of frame.
+Switch ? switch state.
+Case ? case branch.
+Default ? default case.
+Break ? exit block.
+Continue ? loop continue.
+False ? boolean false.
+True ? boolean true.
+Notify ? send signal.
+Endon ? end thread on notify.
+Assert ? dev assert.
+Assertmsg ? assert with message.
+Isdefined ? true if variable is defined.
+.size ? number of array elements.
+
+Examples:
+if() ? run if condition true.
+else ? fallback block.
+while(1) ? infinite loop.
+for(parameter = 0; parameter < 100; parameter++) ? loop 0 to 99.
+foreach(name in parameter) ? iterate array.
+switch(parameter) ? switch.
+case "name": ? case branch.
+break; ? exit.
+default: ? default branch.
+continue; ? skip iteration.
+thread ? run new thread.
+notify("name"); ? send event.
+endon("name"); ? stop thread on event.
+waittill("name") ? wait for event.
+wait(5); ? 5 second delay.
+true ? boolean true.
+false ? boolean false.
+undefined ? no value.
+delete(); ? delete.
+destroy(); ? destroy.</code></pre>
+
+<p class="mb-2">to:</p>
+<pre class="mb-3"><code class="text-code">Symbols:
+"?" mean toggle can have two values "ON" : "OFF"
+"!" mean not
+">" means more than
+"<" means less than
+"==" means equals
+">=" means more than or equal
+"<=" means less than or equals
+"!=" means not equal
+"||" means or
+"&&" means and
+"++" means increments the variable by 1
+"--" means decrements the variable by 1
+"+=" means adds the value that follows the equal sign to the value of the variable before the plus sign
+"-=" means subtracts the value that follows the equal sign from the value of the variable before the minus sign
+"*=" means multiplies the value that follows the equal sign by the value of the variable before the plus sign
+"/=" means divides the value of the variable before the plus sign by the value that follows the equal sign Each of these operators save the value of the operation to the variable before the operator.</code></pre>
+
+<p class="mb-2">to:</p>
+<pre class="mb-3"><code class="text-code">Modifying Numerical Parameter:
+parameter = 0; means declare ?parameter?, value of parameter = 0
+parameter = parameter + 1; means add 1 to the current value of ?parameter?, value of parameter = 1
+parameter = parameter - 1; means subtract 1 from the current value of ?parameter?, value of parameter = 0
+parameter = parameter + 25; means add 25 to the current value of ?parameter?, value of parameter = 25
+parameter = parameter - 12; means subtract 12 from the current value of ?parameter?, value of parameter = 13
+parameter = parameter * 3; means multiply the current value of ?parameter? by 3, value of parameter = 39
+parameter = parameter / 13; means divide the current value of parameter by 9, value of parameter = 3
+
+is the same as:
+parameter = 0; means declare ?parameter?, value of parameter = 0
+parameter++; means add 1 to the current value of ?parameter?, value of parameter = 1
+parameter?; means subtract 1 from the current value of ?parameter?, value of parameter = 0
+parameter += 25; means add 25 to the current value of ?parameter?, value of parameter = 25
+parameter -= 12; means subtract 12 from the current value of ?parameter?, value of parameter = 13
+parameter *= 3; means multiply the current value of ?parameter? by 3, value of parameter = 39
+parameter /= 13; means divide the current value of ?parameter? by 9, value of parameter = 3</code></pre>
+
+<p class="mb-2">to:</p>
+<pre class="mb-3"><code class="text-code">Randomize Numbers:
+randomint(max);
+randomfloat(max);
+randomintrange(min,max);
+randomfloatrange(min,max);</code></pre>
+
+<p class="mb-2">to:</p>
+<pre class="mb-3"><code class="text-code">Type Identifiers:
+isstring(obj);
+isint(obj);
+isfloat(obj);
+isvec(obj);
+isarray(obj);
+isalive(obj);
+isspawner(obj);
+isplayer(obj);
+isai(obj);
+issentient(obj);
+isvehicle(obj);</code></pre>
+
+<p class="mb-2">to:</p>
+<pre class="mb-3"><code class="text-code">String Utility / String Manipulation Functions:
+issubstr(originalString, subStrToFind);
+getSubStr(string, startOffset, ...);
+toLower(string);
+toUpper(string);
+strtok(string, token); //Splits a string into an array at the token points</code></pre>
+
+<p class="mb-2">to:</p>
+<pre class="mb-3"><code class="text-code">Math & Vector Utility Functions:
+sin(theta);
+cos(theta);
+tan(theta);
+asin(theta);
+acos(theta);
+atan(theta);
+int(value);// ToInt
+float(value);// ToFloat
+istring(value); //ToString
+min(val1, val2);
+max(val1, val2);
+floor(value);//Round down
+ceil(value); //Round up
+sqrt(value);
+pow(value, exp);
+distance(start, end);
+distance2D(start, end);
+distanceSquared(start, end); //Comparing a^2 to b is much faster than a to sqrt(b)
+distance2DSquared(start, end);
+length(vector);
+lengthSquared(vector);
+closer(start, trueIfCloser, falseIfCloser);
+vectordot(vec1, vec2);
+vectorcross(vec1, vec2);
+vectornormalize(vector);</code></pre>
+</div>
+</div>
+</section>
+
+  </main>
+
+  <footer class="py-4 border-top" style="border-color:var(--border)!important;">
+    <div class="page d-flex justify-content-between flex-wrap gap-2">
+      <span class="subtle">&copy; <span id="yr"></span> Predecessor ? Developer Kit</span>
+      <a class="link-btn text-link" href="https://soundlessecho.github.io/predecessor.github.io/index.html"><i class="bi bi-arrow-up"></i> Back to top</a>
+    </div>
+  </footer>
+
+  <!-- Removed -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
