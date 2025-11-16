@@ -478,7 +478,7 @@ Wait &#11012; pauses execution for the specified time.
 Thread &#11012; runs a function in a new execution thread.
 Undefined &#11012; represents no value.
 Self &#11012; represents the current entity instance.
-CanBeNameToAnything ? persistent global via spawnStruct().
+CanBeNameToAnything &#11012; persistent global via spawnStruct().
 Level &#11012; global for the duration of a level.
 Name[0] &#11012; global array for the duration of a match.
 If &#11012; conditional.
@@ -505,7 +505,7 @@ Isdefined &#11012; true if variable is defined.
 .size &#11012; number of array elements.
 
 Examples:
-if() &#11012; run if condition true.
+if(parameter) &#11012; run if condition true.
 else &#11012; fallback block.
 while(1) &#11012; infinite loop.
 for(parameter = 0; parameter < 100; parameter++) &#11012; loop 0 to 99.
@@ -518,11 +518,11 @@ continue; &#11012; skip iteration.
 thread &#11012; run new thread.
 notify("name"); &#11012; send event.
 endon("name"); &#11012; stop thread on event.
-waittill("name") &#11012; wait for event.
+waittill("name"); &#11012; wait for event.
 wait(5); &#11012; 5 second delay.
-true &#11012; boolean true.
-false &#11012; boolean false.
-undefined &#11012; no value.
+true; &#11012; boolean true.
+false; &#11012; boolean false.
+undefined; &#11012; no value.
 delete(); &#11012; delete.
 destroy(); &#11012; destroy.</code></pre>
 
@@ -548,43 +548,43 @@ operators save the value of the operation to the variable before the operator.</
 
 <p class="mb-2">to:</p>
 <pre class="mb-3"><code class="text-code">Modifying Numerical Parameter:
-parameter = 0; means declare ?parameter?, value of parameter = 0
-parameter = parameter + 1; means add 1 to the current value of ?parameter?, value of parameter = 1
-parameter = parameter - 1; means subtract 1 from the current value of ?parameter?, value of parameter = 0
-parameter = parameter + 25; means add 25 to the current value of ?parameter?, value of parameter = 25
-parameter = parameter - 12; means subtract 12 from the current value of ?parameter?, value of parameter = 13
-parameter = parameter * 3; means multiply the current value of ?parameter? by 3, value of parameter = 39
+parameter = 0; means declare parameter value equals 0
+parameter = parameter + 1; means add 1 to the current value of parameter, value of parameter = 1
+parameter = parameter - 1; means subtract 1 from the current value of parameter, value of parameter = 0
+parameter = parameter + 25; means add 25 to the current value of parameter, value of parameter = 25
+parameter = parameter - 12; means subtract 12 from the current value of parameter, value of parameter = 13
+parameter = parameter * 3; means multiply the current value of parameter by 3, value of parameter = 39
 parameter = parameter / 13; means divide the current value of parameter by 9, value of parameter = 3
 
 is the same as:
-parameter = 0; means declare ?parameter?, value of parameter = 0
-parameter++; means add 1 to the current value of ?parameter?, value of parameter = 1
-parameter?; means subtract 1 from the current value of ?parameter?, value of parameter = 0
-parameter += 25; means add 25 to the current value of ?parameter?, value of parameter = 25
-parameter -= 12; means subtract 12 from the current value of ?parameter?, value of parameter = 13
-parameter *= 3; means multiply the current value of ?parameter? by 3, value of parameter = 39
-parameter /= 13; means divide the current value of ?parameter? by 9, value of parameter = 3</code></pre>
+parameter = 0; means declare parameter, value of parameter equals 0
+parameter++; means add 1 to the current value of parameter, value of parameter = 1
+parameter?; means subtract 1 from the current value of parameter, value of parameter = 0
+parameter += 25; means add 25 to the current value of parameter, value of parameter = 25
+parameter -= 12; means subtract 12 from the current value of parameter, value of parameter = 13
+parameter *= 3; means multiply the current value of parameter by 3, value of parameter = 39
+parameter /= 13; means divide the current value of parameter by 9, value of parameter = 3</code></pre>
 
 <p class="mb-2">to:</p>
 <pre class="mb-3"><code class="text-code">Randomize Numbers:
-randomint(max);
-randomfloat(max);
-randomintrange(min,max);
-randomfloatrange(min,max);</code></pre>
+randomint(max); &#11012; Returns an integer from 0 to max
+randomfloat(max); &#11012; Returns a float from 0.0 to max
+randomintrange(min,max); &#11012; Returns an integer between min and max
+randomfloatrange(min,max); &#11012; Returns a float between min and max</code></pre>
 
 <p class="mb-2">to:</p>
 <pre class="mb-3"><code class="text-code">Type Identifiers:
-isstring(obj);
-isint(obj);
-isfloat(obj);
-isvec(obj);
-isarray(obj);
-isalive(obj);
-isspawner(obj);
-isplayer(obj);
-isai(obj);
-issentient(obj);
-isvehicle(obj);</code></pre>
+isstring(obj); &#11012; Returns true if the value is a string.
+isint(obj); &#11012; Returns true if the value is an integer (whole number).
+isfloat(obj); &#11012; Returns true if the value is a floating-point number.
+isvec(obj); &#11012; Returns true if the value is a 3-axis vector (e.g., 0 0 0).
+isarray(obj); &#11012; Returns true if the value is an array/list.
+isalive(obj); &#11012; Returns true if the entity exists and is currently alive.
+isspawner(obj); &#11012; Returns **true if the entity is a spawner object (AI spawn node).
+isplayer(obj); &#11012; Returns **true only if the entity is a player-controlled human.
+isai(obj); &#11012; Returns true if the entity is an AI actor (bot, NPC, zombie, enemy soldier, etc.).
+issentient(obj); &#11012; Returns true if the entity is a sentient — anything with awareness, senses, and team behavior (AI or player).
+isvehicle(obj); &#11012; Returns true if the entity is a vehicle type.</code></pre>
 
 <p class="mb-2">to:</p>
 <pre class="mb-3"><code class="text-code">String Utility / String Manipulation Functions:
@@ -639,6 +639,7 @@ vectornormalize(vector);</code></pre>
 </body>
 
 </html>
+
 
 
 
