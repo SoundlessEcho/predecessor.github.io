@@ -588,39 +588,39 @@ isvehicle(obj); &#11012; Returns true if the entity is a vehicle type.</code></p
 
 <p class="mb-2">to:</p>
 <pre class="mb-3"><code class="text-code">String Utility / String Manipulation Functions:
-issubstr(originalString, subStrToFind);
-getSubStr(string, startOffset, ...);
-toLower(string);
-toUpper(string);
-strtok(string, token); //Splits a string into an array at the token points</code></pre>
+issubstr(originalString, subStrToFind); &#11012; Returns true if the second string exists inside the first string.
+getSubStr(string, startOffset, ...); &#11012; Returns a substring extracted from the given string, starting at startOffset with the specified length.
+toLower(string); &#11012; Converts the entire input string to lowercase.
+toUpper(string); &#11012; Converts the entire input string to UPPERCASE.
+strtok(string, token); &#11012; Splits the input string into an array of pieces, using the token as the separator.</code></pre>
 
 <p class="mb-2">to:</p>
 <pre class="mb-3"><code class="text-code">Math & Vector Utility Functions:
-sin(theta);
-cos(theta);
-tan(theta);
-asin(theta);
-acos(theta);
-atan(theta);
-int(value);// ToInt
-float(value);// ToFloat
-istring(value); //ToString
-min(val1, val2);
-max(val1, val2);
-floor(value);//Round down
-ceil(value); //Round up
-sqrt(value);
-pow(value, exp);
-distance(start, end);
-distance2D(start, end);
-distanceSquared(start, end); //Comparing a^2 to b is much faster than a to sqrt(b)
-distance2DSquared(start, end);
-length(vector);
-lengthSquared(vector);
-closer(start, trueIfCloser, falseIfCloser);
-vectordot(vec1, vec2);
-vectorcross(vec1, vec2);
-vectornormalize(vector);</code></pre>
+sin(theta); &#11012; Returns the sine of an angle in degrees.
+cos(theta); &#11012; Returns the cosine of an angle in degrees.
+tan(theta); &#11012; Returns the tangent of an angle in degrees.
+asin(theta); &#11012; Returns the inverse sine (arcsine) of a value, result is in degrees.
+acos(theta); &#11012; Returns the inverse cosine (arccos) of a value, result in degrees.
+atan(theta); &#11012; Returns the inverse tangent (arctangent) of a value, result in degrees.
+int(value); &#11012; Converts a value to an integer (truncates decimals).
+float(value); &#11012; Converts a value to a float.
+istring(value); &#11012; Converts any value to a string.
+min(val1, val2); &#11012; Returns the smaller of the two values.
+max(val1, val2); &#11012; Returns the larger of the two values.
+floor(value); &#11012; Rounds the number down to the nearest whole integer.
+ceil(value); &#11012; Rounds the number up to the nearest whole integer.
+sqrt(value); &#11012; Returns the square root of the value.
+pow(value, exp); &#11012; Raises a value to a given power.
+distance(start, end); &#11012; Returns the 3D distance between two vectors.
+distance2D(start, end); &#11012; Returns the flat 2D distance (ignores Z-axis).
+distanceSquared(start, end); &#11012; Returns the square of the 3D distance without doing a square root.
+distance2DSquared(start, end); &#11012; Returns the square of the 2D distance.
+length(vector); &#11012; Returns the magnitude/length of a 3D vector.
+lengthSquared(vector); &#11012; Returns the length squared of the vector.
+closer(start, trueIfCloser, falseIfCloser); &#11012; Returns whichever of the two points is closer to the starting vector.
+vectordot(vec1, vec2); &#11012; Returns the dot product of two vectors.
+vectorcross(vec1, vec2); &#11012; Returns the cross product of two vectors.
+vectornormalize(vector); &#11012; Returns the normalized version of the vector (length = 1).</code></pre>
 </div>
 </div>
 </section>
@@ -639,6 +639,7 @@ vectornormalize(vector);</code></pre>
 </body>
 
 </html>
+
 
 
 
