@@ -559,7 +559,7 @@ parameter = parameter / 13; means divide the current value of parameter by 9, va
 is the same as:
 parameter = 0; means declare parameter, value of parameter equals 0
 parameter++; means add 1 to the current value of parameter, value of parameter = 1
-parameter?; means subtract 1 from the current value of parameter, value of parameter = 0
+parameter--; means subtract 1 from the current value of parameter, value of parameter = 0
 parameter += 25; means add 25 to the current value of parameter, value of parameter = 25
 parameter -= 12; means subtract 12 from the current value of parameter, value of parameter = 13
 parameter *= 3; means multiply the current value of parameter by 3, value of parameter = 39
@@ -580,8 +580,8 @@ isfloat(obj); &#11012; Returns true if the value is a floating-point number.
 isvec(obj); &#11012; Returns true if the value is a 3-axis vector (e.g., 0 0 0).
 isarray(obj); &#11012; Returns true if the value is an array/list.
 isalive(obj); &#11012; Returns true if the entity exists and is currently alive.
-isspawner(obj); &#11012; Returns **true if the entity is a spawner object (AI spawn node).
-isplayer(obj); &#11012; Returns **true only if the entity is a player-controlled human.
+isspawner(obj); &#11012; Returns true if the entity is a spawner object (AI spawn node).
+isplayer(obj); &#11012; Returns true only if the entity is a player-controlled human.
 isai(obj); &#11012; Returns true if the entity is an AI actor (bot, NPC, zombie, enemy soldier, etc.).
 issentient(obj); &#11012; Returns true if the entity is a sentient — anything with awareness, senses, and team behavior (AI or player).
 isvehicle(obj); &#11012; Returns true if the entity is a vehicle type.</code></pre>
@@ -640,6 +640,7 @@ vectornormalize(vector); &#11012; Returns the normalized version of the vector (
 </body>
 
 </html>
+
 
 
 
